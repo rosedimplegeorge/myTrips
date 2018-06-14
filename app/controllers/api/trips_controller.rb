@@ -20,6 +20,12 @@ class Api::TripsController < ApplicationController
         render json: @trip
     end
 
+    def update
+        @trip = Trip.find(params[:id])
+        @trip.update!(trip_params)
+        render json: @trip
+    end
+
     private
 
     def trip_params
